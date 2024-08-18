@@ -104,7 +104,3 @@ class MessageBus:
                     logging.info(f"Message processing failed: {e}")
                     receiver.abandon_message(msg)
                     self._stop_timer(msg.message_id)  # Stop the timer in case of failure
-
-    def stop(self) -> None:
-        self.servicebus_client.close()
-        logging.info("Service bus client closed")

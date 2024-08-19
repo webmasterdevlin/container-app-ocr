@@ -59,9 +59,9 @@ class MessageBus:
         def renew_lock():
             try:
                 receiver.renew_message_lock(message)
-                logging.info("Lock renewed for message:", message.message_id)
+                logging.info("Lock renewed for message: %s", message.message_id)
             except Exception as e:
-                logging.info("Failed to renew lock:", e)
+                logging.info("Failed to renew lock: %s", e)
 
         def periodic_renewal():
             renew_lock()
